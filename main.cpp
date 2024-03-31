@@ -62,7 +62,7 @@ int main(int argc, char **argv){
         CannyCPU(img_filtered, img_canny_CPU, kernel_size, L2_norm, low_tr, high_tr);
         cuda_timer.stop_timer();
         
-        printf("Time taken for Canny CPU : %f ms\n", cuda_timer.get_time());
+        printf("Time taken for CPU : %f ms\n", cuda_timer.get_time());
         imwrite("Canny_imp_CPU.jpg", img_canny_CPU);
     }
     if(mode_on==1 || mode_on==2){
@@ -78,7 +78,7 @@ int main(int argc, char **argv){
         cuda_timer.start_timer();
         CannyGPU(img_host, img_out_host, rows, cols, kernel_size, low_tr, high_tr, L2_norm);
         cuda_timer.stop_timer();
-        printf("Time taken for Canny GPU : %f ms\n", cuda_timer.get_time());
+        printf("Time taken for GPU : %f ms\n", cuda_timer.get_time());
         
 
         
